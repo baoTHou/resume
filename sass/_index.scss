@@ -1,7 +1,6 @@
 @import"variable";
 @import "compass/typography";
 @import "compass/css3";
-@import "compass/reset";
 .container .page{
   width:nth($baseWidth,1)*10;
   height:nth($baseHeight,1)*10;
@@ -10,103 +9,25 @@
 	background-color:nth($pageBackgroundColor,1);
 }
 .personal-information{
-  list-style-type:none;
-  width:nth($baseWidth,1)*8;
-  margin:0 auto;
-  padding:10px 0;
+   margin:0 auto;
+   width:nth($baseWidth,1)*8;
+   @include border-radius(5px);
+   border:1px solid #ccc;
 }
 .personal-information li{
-   width:nth($baseWidth,1)*4;  
+   float:left;
+   width:nth($baseWidth,1)*5;
+   list-style-type:none;
    font-size:$baseFontSize*1.6;
-   height:$baseFontSize*3.6;
-   line-height:$baseFontSize*3.6;
-   margin:nth($baseWidth,2)*4 0;
-   padding-left:nth($baseWidth,2)*9;
-   cursor:pointer;
-   @include border-radius(30px 0 0 30px);
-   span{
-    position:absolute;
-    width:$baseFontSize*7.2;
-    height:$baseFontSize*7.2;
-    display:inline-block;
-    @include border-radius(100%);
-    margin:-18px 0 0 -82px;
-    border:2px solid rgba(255,255,255,.3);
-    line-height:$baseFontSize*7.2;
-    text-align:center;
-    font-weight:bold;
-    color:nth($baseColor,2)*0;
-    background:nth($pageBackgroundColor,1);
-   }
    &:nth-child(odd){
-	  background:rgba(255,255,255,.3);
-    float:left;
+	  text-align:right;
    }
    &:nth-child(even){
-	  background:rgba(0,0,0,.3);
-    float:right;
+	  text-align:left;
    }
-   &:nth-child(even) span{
-    border:2px solid rgba(0,0,0,.3);
-   }
-   &:nth-child(odd):hover{
-    @include animation(InfoOdd .5s)
-   }
-   &:nth-child(even):hover{
-    @include animation(InfoEven .5s)
-   }
-}
-@include keyframes(InfoOdd)
-{
-  0%   {margin-left:0;}
-  33%  {margin-left:-5%;}
-  66%  {margin-left:5%;}
-  100% {margin-left:0;}
-}
-@include keyframes(InfoEven)
-{
-  0%   {margin-right:0;}
-  33%  {margin-right:-5%;}
-  66%  {margin-right:5%;}
-  100% {margin-right:0;}
 }
 
-.container #page2{
-  background-color:nth($pageBackgroundColor,2);
-}
-.educational{
-  @extend .personal-information;
-  @include display-flex;
-  @include flex-direction(wrap);
-  >div{
-    @include flex(1);
-    margin:0 1%;
-    @include border-radius(5px);
-    border:1px dotted rgba(255,255,255,.5);
-    background-color:rgba(255,255,255,.5);
-    time{
-      display:block;
-      font-size:$baseFontSize*1.6;
-      text-align:center;
-      line-height:1.5;
-      font-family:$baseFontFamily;
-      margin-top:5%;
-    }
-    time:nth-child(2){
-      font-size:$baseFontSize*1.8;
-      font-weight:bold;
-    }
-    p{
-      @extend time;
-    }
-    img{
-      width:90%;
-      margin:5%;
-      @include border-radius(5px);
-    }
-  }
-}
-
+.container #page2{background-color:nth($pageBackgroundColor,2);}
 .container #page3{background-color:nth($pageBackgroundColor,3);}
 .container #page4{background-color:nth($pageBackgroundColor,4);}
 .container #page5{background-color:nth($pageBackgroundColor,5);}
@@ -115,15 +36,15 @@
 
 /*course-fixed*/
 .course-fixed{
-  display:none; 
+    display:none; 
 	height: 0;
-  text-align:right;
-  overflow: hidden;
+    text-align:right;
+    overflow: hidden;
 }
 .public-go-top{
 	position:fixed;
 	right:nth($baseWidth,2)*5;
-  bottom:nth($baseWidth,2)*10;
+    bottom:nth($baseWidth,2)*10;
 	padding:nth($baseWidth,2)*.5;
 	width:nth($baseWidth,2)*3.2;
 	height:nth($baseHeight,2)*3.2;
