@@ -1,0 +1,58 @@
+@import"variable";
+@import "compass/typography";
+@import "compass/css3";
+.container .page{
+  width:nth($baseWidth,1)*10;
+  height:nth($baseHeight,1)*10;
+}
+.container #page1{
+	background-color:nth($pageBackgroundColor,1);
+}
+.personal-information{
+   margin:0 auto;
+   width:nth($baseWidth,1)*8;
+   @include border-radius(5px);
+   border:1px solid #ccc;
+}
+.personal-information li{
+   float:left;
+   width:nth($baseWidth,1)*5;
+   list-style-type:none;
+   font-size:$baseFontSize*1.6;
+   &:nth-child(odd){
+	  text-align:right;
+   }
+   &:nth-child(even){
+	  text-align:left;
+   }
+}
+
+.container #page2{background-color:nth($pageBackgroundColor,2);}
+.container #page3{background-color:nth($pageBackgroundColor,3);}
+.container #page4{background-color:nth($pageBackgroundColor,4);}
+.container #page5{background-color:nth($pageBackgroundColor,5);}
+
+
+
+/*course-fixed*/
+.course-fixed{
+    display:none; 
+	height: 0;
+    text-align:right;
+    overflow: hidden;
+}
+.public-go-top{
+	position:fixed;
+	right:nth($baseWidth,2)*5;
+    bottom:nth($baseWidth,2)*10;
+	padding:nth($baseWidth,2)*.5;
+	width:nth($baseWidth,2)*3.2;
+	height:nth($baseHeight,2)*3.2;
+	background-color:#ccc;
+	border-radius:5px;
+	text-align:center;
+	cursor:pointer;
+}
+.public-go-top:hover{
+	background-color:#666;
+}

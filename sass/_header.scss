@@ -1,0 +1,148 @@
+@import "variable";
+@import "mixin";
+@import "compass/layout/stretching";
+@import "compass/utilities";
+@import "compass/css3";
+html,body{
+  width:nth($baseWidth,1)*10;
+  height:nth($baseHeight,1)*10;
+}
+.public-header{
+    width:nth($baseWidth,1)*10;
+    height:nth($baseHeight,1)*10;
+    background-color:$headerBackgroundColor;
+}
+.nav-wrap{
+	@include stretch;
+	margin:auto;
+    width:nth($baseWidth,2)*50;
+    height:nth($baseHeight,2)*50;
+    border: 2px dotted orange;
+    border-radius: 50%;
+}
+.nav{
+	position: absolute;
+    width:nth($baseWidth,1)*10;
+    height:nth($baseHeight,1)*10;
+    @include transform(scale(0));
+    @include transition(all 0.5s ease-out);
+    @include opacity(0);
+}
+.nav-wrap.active .nav {
+    @include transform(scale(1));
+    @include opacity(1);
+}
+.nav .list-nav{
+	  position: absolute;
+    width:nth($baseWidth,2)*12;
+    height:nth($baseHeight,2)*12;
+    text-align: center;
+    color:nth($baseColor,1);
+    @include border-radius(3px);
+    @include transform(translate(-50%,-50%));
+}
+.nav .list-nav .radius{
+	  position: absolute;
+	  width:100px;
+	  height:100px;
+	  border:10px solid orange;
+    border-left-color:#4dd3ff;
+    border-bottom-color:#4dd3ff;
+    border-radius:50%;
+    text-align:center;
+    background-color:#15a5f3;
+    cursor:pointer;
+    @include transition(all .5s ease-in);
+}
+.nav .list-nav .info{
+	position:absolute;
+	margin: 50px 0 0 0;
+	font-size:$baseFontSize*1.6;
+	width:nth($baseWidth,2)*12;
+	line-height:$baseLineHeight*1.2;
+	color:nth($baseColor,1);
+	text-align:center;
+}
+.nav a.list-nav:hover .radius{
+	 @include transform(rotate(180deg));
+	 background-color:nth($headerBackgroundColor,1);
+}
+.nav a.list-nav:hover .info{
+	color:nth($baseColor,2)*6;
+}
+.public-header .main-nav{
+    @include stretch;
+	  margin:auto;
+	  width:nth($baseWidth,2)*15;
+    height:nth($baseHeight,2)*15;
+    // background:nth($baseBackgroundColor,3);
+    text-align: center;
+    text-decoration: none;
+    color: nth($baseColor,1);
+    @include border-radius(50%);
+    text-shadow: 1px 1px 0px #000;
+    cursor:pointer;
+}
+.public-header .main-nav{
+    &:before{
+       @include stretch;
+       content:"";
+       margin:-2px;
+       border:2px solid orange;
+       background:transparent;
+       @include border-radius(50%);
+       @include animation(myBig 2s infinite);
+    }
+    &:after{
+       @include stretch;
+       content:"";
+       margin:-2px;
+       border:2px solid orange;
+       background:transparent;
+       @include border-radius(50%);
+       @include animation(mySmall 2s infinite);
+    }
+}
+@include keyframes(myBig){
+    0%{
+       @include transform(scale(1));
+    }
+    50%{
+       @include transform(scale(1.5));
+       @include opacity(0);
+    }
+    100%{
+       @include transform(scale(1)); 
+       @include opacity(0);
+    }
+}
+@include keyframes(mySmall){
+    0%{
+       @include transform(scale(1));
+    }
+    50%{
+       @include transform(scale(2));
+       @include opacity(0);
+    }
+    100%{
+       @include transform(scale(1)); 
+       @include opacity(0);
+    }
+}
+.public-header .main-nav .img{
+    @include stretch;
+    z-index:1;
+    width:nth($baseWidth,2)*15;
+    height:nth($baseHeight,2)*15;
+    overflow: hidden;
+    @include border-radius(100%);
+    @include transform(rotate(0deg));
+    @include transition(all .5s);
+    &:hover{
+        @include transform(rotate(360deg));
+    }
+    img{
+       width:nth($baseWidth,1)*10;
+       height:nth($baseHeight,1)*10; 
+    }
+}
