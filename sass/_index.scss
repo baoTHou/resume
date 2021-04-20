@@ -75,6 +75,7 @@
   background-color:nth($pageBackgroundColor,2);
 }
 .educational{
+  padding-top:10%;
   @extend .personal-information;
   @include display-flex;
   @include flex-direction(wrap);

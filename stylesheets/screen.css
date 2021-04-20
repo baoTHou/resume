@@ -744,6 +744,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .educational {
+  padding-top: 10%;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: wrap;
